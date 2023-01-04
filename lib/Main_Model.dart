@@ -5,20 +5,19 @@ class MainModel extends Model {
 
   Map<String, dynamic> get data => _data;
 
-  void updateAbility(
-      num value1, num value2, num value3, num value4, num value5, num value6, num value7) {
+  void updateAbility(String key, num value1, num value2, num value3, num value4, num value5, num value6, num value7) {
     //add index of accounts here
-    _data['str'] = value1;
-    _data['dex'] = value2;
-    _data['con'] = value3;
-    _data['int'] = value4;
-    _data['wis'] = value5;
-    _data['cha'] = value6;
-    _data['maxtick'] = value7;
+    _data[key]['abilityScores']['str'] = value1;
+    _data[key]['abilityScores']['dex'] = value2;
+    _data[key]['abilityScores']['con'] = value3;
+    _data[key]['abilityScores']['int'] = value4;
+    _data[key]['abilityScores']['wis'] = value5;
+    _data[key]['abilityScores']['cha'] = value6;
+    _data[key]['abilityScores']['maxtick'] = value7;
     notifyListeners();
   }
 
-  void updateBasicStats(num value1, num value2, num value3, num value4, num value5, num value6, num value7, num value8){
+  void updateBasicStats(String key, num value1, num value2, num value3, num value4, num value5, num value6, num value7, num value8){
 
   }
 
@@ -57,7 +56,12 @@ class MainModel extends Model {
         "hitdice": 0,
         "deathsaves": 0
       },
-      "personality": {"traits": [""], "ideals": [""], "Bonds": [""], "Flaws": [""]},
+      "personality": {
+        "traits": [""],
+        "ideals": [""],
+        "Bonds": [""],
+        "Flaws": [""]
+      },
       "equipment": {
         "cp": 0,
         "sp": 0,
