@@ -1,5 +1,82 @@
 {
-    "namejson" : "",
-    "racejson" : "",
-    "classjson" : ""
+    "accounts": [
+        {
+            "id": 1,
+            "name": "",
+            "race": "",
+            "class": "",
+            "abilityScores": [
+                {
+                    "STR": 0,
+                    "DEX": 0,
+                    "CON": 0,
+                    "INT": 0,
+                    "WIS": 0,
+                    "CHA": 0,
+                    "maxtick": 0,
+                    "inspiration": 0,
+                    "proficiency": 0,
+                    "perception": 0,
+                    "savingThrows": 0,
+                    "skills": ""
+                }
+            ],
+            "basicStats": [
+                {
+                    "armor": 0,
+                    "initiative": 0,
+                    "maxhp": 0,
+                    "hp": 0,
+                    "temphp": 0,
+                    "totalhitdice": 0,
+                    "hitdice": 0,
+                    "deathsaves": 0
+                }
+            ],
+            "personality": [
+                {
+                    "traits": "",
+                    "ideals": "",
+                    "Bonds": "",
+                    "Flaws": ""
+                }
+            ],
+            "equipment": [
+                {
+                    "cp": 0,
+                    "sp": 0,
+                    "ep": 0,
+                    "gp": 0,
+                    "pp": 0,
+                    "equipments": [""]
+                }
+            ],
+            "attacks": [
+                {
+                    "name": [""],
+                    "atk": [""],
+                    "damage": [""],
+                    "type": [""]
+                }
+            ],
+            "proficiency": [
+                {
+                    "languange": [""],
+                    "other": [""]
+                }
+            ],
+            "inventory": [
+                {
+                    "inv": [""],
+                    "treasure": [""]
+                }
+            ],
+            "allies": [
+                {
+                    "list": [""]
+                }
+            ]
+        }
+    ]
 }
+
