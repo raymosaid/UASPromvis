@@ -3,18 +3,10 @@ import 'package:scoped_model/scoped_model.dart';
 class MainModel extends Model {
   Map<String, dynamic> _data = {};
 
-  num _maxtick = 0;
-
-  num get maxtick => _maxtick;
   Map<String, dynamic> get data => _data;
 
-  void setmaxtick(num value) {
-    _maxtick = value;
-    notifyListeners();
-  }
-
   void updateAbility(
-      num value1, num value2, num value3, num value4, num value5, num value6) {
+      num value1, num value2, num value3, num value4, num value5, num value6, num value7) {
     //add index of accounts here
     _data['str'] = value1;
     _data['dex'] = value2;
@@ -22,6 +14,7 @@ class MainModel extends Model {
     _data['int'] = value4;
     _data['wis'] = value5;
     _data['cha'] = value6;
+    _data['maxtick'] = value7;
     notifyListeners();
   }
 
@@ -30,10 +23,12 @@ class MainModel extends Model {
   }
 
   void deleteAccount(String key) {
+    //disini remove account dengan memberi nama account, contoh: deleteAccount('account 1')
     _data.remove(key);
   }
 
   void addAccount(String key, String name, String race, String classs, int basic) {
+    //ketika membuat account baru, semua status dalam akun itu 0 atau kosong(untuk string)
     _data[key] = {
       "name": name,
       "race": race,
@@ -90,6 +85,4 @@ class MainModel extends Model {
       }
     };
   }
-
-
 }
