@@ -35,7 +35,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  List<String> kunci = [''];
+  List<String> kunci = [];
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
         height: MediaQuery.of(context).size.height * 0.75,
         child: ListView.builder(
           itemBuilder: (context, index) {
+            if (kunci == null) return Container();
             return Card(
               margin: EdgeInsets.all(4),
               elevation: 8,
