@@ -2,33 +2,40 @@ import 'package:scoped_model/scoped_model.dart';
 
 class MainModel extends Model {
   Map<String, dynamic> _data = {};
+  num _maxtick = 0;
 
   Map<String, dynamic> get data => _data;
+  num get maxtick => _maxtick;
 
-  void updateAbility(String key, num value1, num value2, num value3, num value4, num value5, num value6, num value7) {
-    //add index of accounts here
-    _data[key]['abilityScores']['str'] = value1;
-    _data[key]['abilityScores']['dex'] = value2;
-    _data[key]['abilityScores']['con'] = value3;
-    _data[key]['abilityScores']['int'] = value4;
-    _data[key]['abilityScores']['wis'] = value5;
-    _data[key]['abilityScores']['cha'] = value6;
-    _data[key]['abilityScores']['maxtick'] = value7;
+  getMaxTick(String kunci){
+    _maxtick = _data[kunci]['abilityScores']['maxtick'];
     notifyListeners();
   }
 
-  void updateBasicStats(String key, num value1, num value2, num value3, num value4, num value5, num value6, num value7, num value8){
+  void updateAbility(String kunci, num value1, num value2, num value3, num value4, num value5, num value6, num value7) {
+    //add index of accounts here
+    _data[kunci]['abilityScores']['str'] = value1;
+    _data[kunci]['abilityScores']['dex'] = value2;
+    _data[kunci]['abilityScores']['con'] = value3;
+    _data[kunci]['abilityScores']['int'] = value4;
+    _data[kunci]['abilityScores']['wis'] = value5;
+    _data[kunci]['abilityScores']['cha'] = value6;
+    _data[kunci]['abilityScores']['maxtick'] = value7;
+    notifyListeners();
+  }
+
+  void updateBasicStats(String kunci, num value1, num value2, num value3, num value4, num value5, num value6, num value7, num value8){
 
   }
 
-  void deleteAccount(String key) {
+  void deleteAccount(String kunci) {
     //disini remove account dengan memberi nama account, contoh: deleteAccount('account 1')
-    _data.remove(key);
+    _data.remove(kunci);
   }
 
-  void addAccount(String key, String name, String race, String classs, int basic) {
+  void addAccount(String kunci, String name, String race, String classs) {
     //ketika membuat account baru, semua status dalam akun itu 0 atau kosong(untuk string)
-    _data[key] = {
+    _data[kunci] = {
       "name": name,
       "race": race,
       "class": classs,

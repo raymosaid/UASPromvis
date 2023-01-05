@@ -1,12 +1,22 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:uaspromvisray/character.dart';
+import 'dart:convert';
+import 'ability.dart';
+import 'dart:io';
+import 'abilitychart.dart';
+import 'package:scoped_model/scoped_model.dart';
+import 'Main_Model.dart';
 import 'package:uaspromvisray/main.dart';
 
+void main() {
+  runApp(ScopedModel(
+    model: (MainModel()),
+    child: Addchar(),
+  )
+  );
+}
+
+
 class Addchar extends StatefulWidget {
-  final Function(Character) addChar;
-  Addchar(this.addChar);
 
   @override
   AddcharState createState() {
@@ -15,17 +25,13 @@ class Addchar extends StatefulWidget {
 }
 
 class AddcharState extends State<Addchar> {
-  final textEditController = TextEditingController();
-  String nama = "";
+  TextEditingController nama = TextEditingController();
   String pilihanrace = "Human";
   String pilihanclass = "Warrior";
 
+  String kunci = '';
+
   @override
-  void dispose() {
-    // Clean up the controller when the widget is disposed.
-    textEditController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +47,7 @@ class AddcharState extends State<Addchar> {
                 SizedBox(
                   width: 300,
                   child: TextField(
-                  controller: textEditController,
+                  controller: nama,
                   ),
                 ),
 
@@ -84,19 +90,20 @@ class AddcharState extends State<Addchar> {
                   child: ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        final character = Character(textEditController.text, pilihanrace, pilihanclass);
-                        String json = jsonEncode(Character(textEditController.text, pilihanrace, pilihanclass));
-                        //widget.addChar(character);
+                        ScopedModel.of<MainModel>(context).addAccount(kunci, nama.text, pilihanrace, pilihanclass);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyHomePage(),
+                          ),
+                        );
                       }); //refresh
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                        return MyApp();
-                      }));
                     },
                     child: const Text('Submit'),
                   ),
                 ),
               ],
-            )), //affold
+            )),
     ); //Material APP
   }
 }
