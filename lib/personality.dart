@@ -1,9 +1,29 @@
+import 'package:uaspromvisray/main.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
+import 'Main_Model.dart';
 import 'package:uaspromvisray/ability.dart';
 import 'package:uaspromvisray/basicStats.dart';
 import 'package:uaspromvisray/equipment.dart';
 import 'package:uaspromvisray/dashboard.dart';
 
+void main() {
+  runApp(ScopedModel(
+    model: MainModel(),
+    child: MyApp(),
+  )
+  );
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: PersonalityPage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
 
 class PersonalityPage extends StatelessWidget {
   TextEditingController Personality = TextEditingController();
@@ -13,6 +33,7 @@ class PersonalityPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
     return Scaffold(
         appBar: AppBar(title: Text('Personality and Background')),
 
@@ -94,19 +115,19 @@ class PersonalityPage extends StatelessWidget {
             DrawerHeader(
               decoration: BoxDecoration(color: Colors.blue),
               child: Column(
-                children: const[
+                children: [
                   CircleAvatar(
                     backgroundImage: NetworkImage(''),
                     maxRadius: 40,
                   ),
                   SizedBox(height: 10),
-                  Text('Character Name',
+                  Text(ScopedModel.of<MainModel>(context).data[kunci]['name'],
                       style: TextStyle(fontSize: 15, color: Colors.white)
                   ),
-                  Text('Race',
+                  Text(ScopedModel.of<MainModel>(context).data[kunci]['race'],
                       style: TextStyle(fontSize: 10, color: Colors.white)
                   ),
-                  Text('Level Class',
+                  Text(ScopedModel.of<MainModel>(context).data[kunci]['class'],
                       style: TextStyle(fontSize: 10, color: Colors.white)
                   )
                 ],
@@ -176,7 +197,7 @@ class PersonalityPage extends StatelessWidget {
                 onTap: (){Navigator.of(context).pushNamed("/");}
             ),
             ListTile(
-                title: Text("Character Proficiens"),
+                title: Text("Character Proficiency"),
                 onTap: (){Navigator.of(context).pushNamed("/");}
             ),
             ListTile(
@@ -193,9 +214,16 @@ class PersonalityPage extends StatelessWidget {
                       children: <Widget>[
                         Divider(),
                         ListTile(
-                            leading: Icon(Icons.logout),
-                            title: Text('Log out'),
-                            onTap: (){Navigator.of(context).pushNamed("/");}
+                          leading: Icon(Icons.logout),
+                          title: Text('Log out'),
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MyHomePage(),
+                              ),
+                            );
+                          },
                         )
                       ],
                     )

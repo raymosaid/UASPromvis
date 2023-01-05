@@ -6,6 +6,8 @@ import 'package:uaspromvisray/personality.dart';
 import 'package:uaspromvisray/equipment.dart';
 import 'Main_Model.dart';
 import 'dart:math' as math;
+import 'package:uaspromvisray/main.dart';
+
 
 void main() {
   runApp(ScopedModel(
@@ -27,7 +29,6 @@ class MyApp extends StatelessWidget {
 
 class AbilityPage extends StatelessWidget {
   @override
-  String kunci = "";
   num max = 0;
   TextEditingController STR = TextEditingController();
   TextEditingController DEX = TextEditingController();
@@ -42,6 +43,7 @@ class AbilityPage extends StatelessWidget {
   TextEditingController Skills = TextEditingController();
 
   Widget build(BuildContext context) {
+    String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
     return Scaffold(
         appBar: AppBar(
           title: Text('Ability Scores'),
@@ -62,19 +64,19 @@ class AbilityPage extends StatelessWidget {
               DrawerHeader(
                 decoration: BoxDecoration(color: Colors.blue),
                 child: Column(
-                  children: const[
+                  children: [
                     CircleAvatar(
                       backgroundImage: NetworkImage(''),
                       maxRadius: 40,
                     ),
                     SizedBox(height: 10),
-                    Text('Character Name',
+                    Text(ScopedModel.of<MainModel>(context).data[kunci]['name'],
                         style: TextStyle(fontSize: 15, color: Colors.white)
                     ),
-                    Text('Race',
+                    Text(ScopedModel.of<MainModel>(context).data[kunci]['race'],
                         style: TextStyle(fontSize: 10, color: Colors.white)
                     ),
-                    Text('Level Class',
+                    Text(ScopedModel.of<MainModel>(context).data[kunci]['class'],
                         style: TextStyle(fontSize: 10, color: Colors.white)
                     )
                   ],
@@ -144,7 +146,7 @@ class AbilityPage extends StatelessWidget {
                   onTap: (){Navigator.of(context).pushNamed("/");}
               ),
               ListTile(
-                  title: Text("Character Proficiens"),
+                  title: Text("Character Proficiency"),
                   onTap: (){Navigator.of(context).pushNamed("/");}
               ),
               ListTile(
@@ -161,9 +163,16 @@ class AbilityPage extends StatelessWidget {
                         children: <Widget>[
                           Divider(),
                           ListTile(
-                              leading: Icon(Icons.logout),
-                              title: Text('Log out'),
-                              onTap: (){Navigator.of(context).pushNamed("/");}
+                            leading: Icon(Icons.logout),
+                            title: Text('Log out'),
+                            onTap: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MyHomePage(),
+                                ),
+                              );
+                            },
                           )
                         ],
                       )

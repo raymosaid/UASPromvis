@@ -5,14 +5,26 @@ class MainModel extends Model {
   num _maxtick = 0;
   int _numberOfAcc = 0;
   List<String> _daftar = [];
+  int _chosen = 0;
 
   Map<String, dynamic> get data => _data;
   num get maxtick => _maxtick;
   int get numberOfAcc => _numberOfAcc;
   List<String> get daftar => _daftar;
+  int get chosen => _chosen;
+
+  getChosenAcc(){
+    notifyListeners();
+    return _chosen + 1;
+  }
+
+  void updateChosenAcc(int value){
+    _chosen = value;
+    notifyListeners();
+  }
 
   getMaxTick(String kunci){
-    _maxtick = _data[kunci]['abilityScores']['maxtick'];
+    _maxtick = _data[kunci]["abilityScores"]["maxtick"];
     notifyListeners();
     return _maxtick;
   }
@@ -48,10 +60,6 @@ class MainModel extends Model {
     _data[kunci]['abilityScores']['cha'] = value6;
     _data[kunci]['abilityScores']['maxtick'] = value7;
     notifyListeners();
-  }
-
-  void updateBasicStats(String kunci, num value1, num value2, num value3, num value4, num value5, num value6, num value7, num value8){
-
   }
 
   void deleteAccount(String kunci) {

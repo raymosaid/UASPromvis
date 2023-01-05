@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uaspromvisray/ability.dart';
 import 'package:uaspromvisray/basicStats.dart';
 import 'package:uaspromvisray/equipment.dart';
+import 'package:uaspromvisray/main.dart';
 import 'package:uaspromvisray/personality.dart';
 import 'package:uaspromvisray/abilitychart.dart';
 import 'dart:io';
@@ -13,6 +14,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return ScopedModel(
@@ -26,12 +28,14 @@ class MyApp extends StatelessWidget {
 }
 
 class Dashboard extends StatelessWidget {
+
+
   @override
   final profile = File('images/profile2test.png');
-  String kunci = "";
 
   Widget build(BuildContext context) {
-    int numberOfAcc = ScopedModel.of<MainModel>(context).getNumberOfAccounts();
+    String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
+
     return Scaffold(
         appBar: AppBar(
           title: Text("Dashboard"),
@@ -42,19 +46,19 @@ class Dashboard extends StatelessWidget {
               DrawerHeader(
                 decoration: BoxDecoration(color: Colors.blue),
                 child: Column(
-                  children: const[
+                  children: [
                     CircleAvatar(
                       backgroundImage: NetworkImage(''),
                       maxRadius: 40,
                     ),
                     SizedBox(height: 10),
-                    Text('Character Name',
+                    Text(ScopedModel.of<MainModel>(context).data[kunci]['name'],
                         style: TextStyle(fontSize: 15, color: Colors.white)
                     ),
-                    Text('Race',
+                    Text(ScopedModel.of<MainModel>(context).data[kunci]['race'],
                         style: TextStyle(fontSize: 10, color: Colors.white)
                     ),
-                    Text('Level Class',
+                    Text(ScopedModel.of<MainModel>(context).data[kunci]['class'],
                         style: TextStyle(fontSize: 10, color: Colors.white)
                     )
                   ],
@@ -124,7 +128,7 @@ class Dashboard extends StatelessWidget {
                   onTap: (){Navigator.of(context).pushNamed("/");}
               ),
               ListTile(
-                  title: Text("Character Proficiens"),
+                  title: Text("Character Proficiency"),
                   onTap: (){Navigator.of(context).pushNamed("/");}
               ),
               ListTile(
@@ -143,7 +147,14 @@ class Dashboard extends StatelessWidget {
                           ListTile(
                               leading: Icon(Icons.logout),
                               title: Text('Log out'),
-                              onTap: (){Navigator.of(context).pushNamed("/");}
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MyHomePage(),
+                                  ),
+                                );
+                              },
                           )
                         ],
                       )
@@ -164,9 +175,9 @@ class Dashboard extends StatelessWidget {
               Container(
                 width: 300,
                 height: 50,
-                child: const Center(
+                child: Center(
                   child: Text(
-                    'Character Name',
+                    ScopedModel.of<MainModel>(context).data[kunci]['name'],
                     style: TextStyle(fontSize: 30),
                   ),
                 ),
@@ -175,11 +186,11 @@ class Dashboard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Level',
+                    ScopedModel.of<MainModel>(context).data[kunci]['race'],
                     style: TextStyle(fontSize: 18),
                   ),
                   Text(
-                    'Class',
+                    ScopedModel.of<MainModel>(context).data[kunci]['class'],
                     style: TextStyle(fontSize: 18),
                   )
                 ],
@@ -205,7 +216,8 @@ class Dashboard extends StatelessWidget {
                       ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['wis'],
                       ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['cha']
                     ]
-                  ]))
+                  ])
+              )
             ],
           ),
         )

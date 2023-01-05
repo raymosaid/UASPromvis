@@ -72,6 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 trailing: Text(
                     ScopedModel.of<MainModel>(context).data[daftar[index]]['class']),
                 onTap: () {
+                  ScopedModel.of<MainModel>(context).updateChosenAcc(index);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Dashboard()),
