@@ -3,14 +3,28 @@ import 'package:scoped_model/scoped_model.dart';
 class MainModel extends Model {
   Map<String, dynamic> _data = {};
   num _maxtick = 0;
+  int _numberOfAcc = 0;
 
   Map<String, dynamic> get data => _data;
   num get maxtick => _maxtick;
+  int get numberOfAcc => _numberOfAcc;
 
   getMaxTick(String kunci){
     _maxtick = _data[kunci]['abilityScores']['maxtick'];
     notifyListeners();
+    return _maxtick;
   }
+
+  getNumberOfAccounts(){
+    notifyListeners();
+    return _numberOfAcc;
+  }
+
+  void updateNumberOfAcc(int value){
+    _numberOfAcc = value;
+    notifyListeners();
+  }
+
 
   void updateAbility(String kunci, num value1, num value2, num value3, num value4, num value5, num value6, num value7) {
     //add index of accounts here

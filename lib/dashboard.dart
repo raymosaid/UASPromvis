@@ -31,6 +31,7 @@ class Dashboard extends StatelessWidget {
   String kunci = "";
 
   Widget build(BuildContext context) {
+    int numberOfAcc = ScopedModel.of<MainModel>(context).getNumberOfAccounts();
     return Scaffold(
         appBar: AppBar(
           title: Text("Dashboard"),

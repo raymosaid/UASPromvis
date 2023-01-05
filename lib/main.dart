@@ -35,10 +35,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  List<String> kunci = [];
-
   @override
   Widget build(BuildContext context) {
+    int kunci = ScopedModel.of<MainModel>(context).getNumberOfAccounts();
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -52,6 +51,8 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
       ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: null,
         title: Text("Tubes PromVis"),
       ),
       body: Container(
@@ -64,11 +65,11 @@ class _MyHomePageState extends State<MyHomePage> {
               elevation: 8,
               child: ListTile(
                 title: Text(
-                    ScopedModel.of<MainModel>(context).data[kunci[index]]['name']),
+                    ScopedModel.of<MainModel>(context).data[kunci.toString()[index]]['name']),
                 subtitle: Text(
-                    ScopedModel.of<MainModel>(context).data[kunci[index]]['race']),
+                    ScopedModel.of<MainModel>(context).data[kunci.toString()[index]]['race']),
                 trailing: Text(
-                    ScopedModel.of<MainModel>(context).data[kunci[index]]['classs']),
+                    ScopedModel.of<MainModel>(context).data[kunci.toString()[index]]['class']),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -78,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             );
           },
-          itemCount: kunci.length,
+          itemCount: kunci,
         ),
       ),
     );
