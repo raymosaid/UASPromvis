@@ -38,6 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     int kunci = ScopedModel.of<MainModel>(context).getNumberOfAccounts();
+    List<String> daftar = ScopedModel.of<MainModel>(context).getDaftarAkun();
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -59,17 +61,16 @@ class _MyHomePageState extends State<MyHomePage> {
         height: MediaQuery.of(context).size.height * 0.75,
         child: ListView.builder(
           itemBuilder: (context, index) {
-            if (kunci == null) return Container();
             return Card(
               margin: EdgeInsets.all(4),
               elevation: 8,
               child: ListTile(
                 title: Text(
-                    ScopedModel.of<MainModel>(context).data[kunci.toString()[index]]['name']),
+                    ScopedModel.of<MainModel>(context).data[daftar[index]]['name']),
                 subtitle: Text(
-                    ScopedModel.of<MainModel>(context).data[kunci.toString()[index]]['race']),
+                    ScopedModel.of<MainModel>(context).data[daftar[index]]['race']),
                 trailing: Text(
-                    ScopedModel.of<MainModel>(context).data[kunci.toString()[index]]['class']),
+                    ScopedModel.of<MainModel>(context).data[daftar[index]]['class']),
                 onTap: () {
                   Navigator.push(
                     context,

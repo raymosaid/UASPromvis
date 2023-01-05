@@ -28,13 +28,12 @@ class AddcharState extends State<Addchar> {
   TextEditingController nama = TextEditingController();
   String pilihanrace = "Human";
   String pilihanclass = "Warrior";
-  int kunci = 0;
 
   @override
 
   @override
   Widget build(BuildContext context) {
-    int numberOfAcc = ScopedModel.of<MainModel>(context).getNumberOfAccounts();
+    int kunci = ScopedModel.of<MainModel>(context).getNumberOfAccounts();
     return Scaffold(
         appBar: AppBar(
           title: const Text('Create Character'),
@@ -93,6 +92,7 @@ class AddcharState extends State<Addchar> {
                         kunci = ScopedModel.of<MainModel>(context).getNumberOfAccounts() + 1;
                         ScopedModel.of<MainModel>(context).updateNumberOfAcc(kunci);
                         ScopedModel.of<MainModel>(context).addAccount(kunci.toString(), nama.text, pilihanrace, pilihanclass);
+                        ScopedModel.of<MainModel>(context).updateDaftarAkun(kunci.toString());
                         Navigator.push(
                           context,
                           MaterialPageRoute(

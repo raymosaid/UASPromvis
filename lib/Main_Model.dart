@@ -4,10 +4,12 @@ class MainModel extends Model {
   Map<String, dynamic> _data = {};
   num _maxtick = 0;
   int _numberOfAcc = 0;
+  List<String> _daftar = [];
 
   Map<String, dynamic> get data => _data;
   num get maxtick => _maxtick;
   int get numberOfAcc => _numberOfAcc;
+  List<String> get daftar => _daftar;
 
   getMaxTick(String kunci){
     _maxtick = _data[kunci]['abilityScores']['maxtick'];
@@ -22,6 +24,16 @@ class MainModel extends Model {
 
   void updateNumberOfAcc(int value){
     _numberOfAcc = value;
+    notifyListeners();
+  }
+
+  getDaftarAkun(){
+    notifyListeners();
+    return _daftar;
+  }
+
+  void updateDaftarAkun(String value){
+    _daftar.add(value);
     notifyListeners();
   }
 
@@ -78,10 +90,10 @@ class MainModel extends Model {
         "deathsaves": 0
       },
       "personality": {
-        "traits": [""],
-        "ideals": [""],
-        "Bonds": [""],
-        "Flaws": [""]
+        "traits": [],
+        "ideals": [],
+        "Bonds": [],
+        "Flaws": []
       },
       "equipment": {
         "cp": 0,
@@ -89,24 +101,24 @@ class MainModel extends Model {
         "ep": 0,
         "gp": 0,
         "pp": 0,
-        "equipments": [""]
+        "equipments": []
       },
       "attacks": {
-        "name": [""],
-        "atk": [""],
-        "damage": [""],
-        "type": [""]
+        "name": [],
+        "atk": [],
+        "damage": [],
+        "type": []
       },
       "proficiency": {
-        "languange": [""],
-        "other": [""]
+        "languange": [],
+        "other": []
       },
       "inventory": {
-        "inv": [""],
-        "treasure": [""]
+        "inv": [],
+        "treasure": []
       },
       "allies": {
-        "list": [""]
+        "list": []
       }
     };
   }
