@@ -27,7 +27,6 @@ class Dashboard extends StatelessWidget {
 
 
   @override
-  final profile = Image.network('https://github.com/raymosaid/UASPromvis/blob/main/images/profile2test.png');
 
   Widget build(BuildContext context) {
     String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
@@ -44,7 +43,10 @@ class Dashboard extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                 height: 100,
                 width: 100,
-                child: profile,
+                child: CircleAvatar(
+                  backgroundColor: Colors.grey,
+                  maxRadius: 50,
+                ),
               ),
               Container(
                 width: 300,
@@ -91,7 +93,88 @@ class Dashboard extends StatelessWidget {
                       ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['cha']
                     ]
                   ])
-              )
+              ),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Inspiration : "),
+                    Text(ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['inspiration'].toString())
+                  ],
+                )
+              ),
+              Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Proficiency Bonus : "),
+                      Text(ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['proficiency'].toString())
+                    ],
+                  )
+              ),
+              Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Perception : "),
+                      Text(ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['perception'].toString())
+                    ],
+                  )
+              ),
+              Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("CP : "),
+                      Text(ScopedModel.of<MainModel>(context).data[kunci]['equipment']['cp'].toString())
+                    ],
+                  )
+              ),
+              Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("SP : "),
+                      Text(ScopedModel.of<MainModel>(context).data[kunci]['equipment']['sp'].toString())
+                    ],
+                  )
+              ),
+              Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("EP : "),
+                      Text(ScopedModel.of<MainModel>(context).data[kunci]['equipment']['ep'].toString())
+                    ],
+                  )
+              ),
+              Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("GP : "),
+                      Text(ScopedModel.of<MainModel>(context).data[kunci]['equipment']['gp'].toString())
+                    ],
+                  )
+              ),
+              Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("PP : "),
+                      Text(ScopedModel.of<MainModel>(context).data[kunci]['equipment']['pp'].toString())
+                    ],
+                  )
+              ),
+              Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Inventory : "),
+                      Text(ScopedModel.of<MainModel>(context).data[kunci]['inventory']['inv'].toString(), maxLines: 5,)
+                    ],
+                  )
+              ),
             ],
           ),
         )

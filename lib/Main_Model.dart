@@ -50,7 +50,7 @@ class MainModel extends Model {
   }
 
 
-  void updateAbility(String kunci, num value1, num value2, num value3, num value4, num value5, num value6, num value7) {
+  void updateAbility(String kunci, num value1, num value2, num value3, num value4, num value5, num value6, num value7, num value8, num value9, num value10, num value11, String value12) {
     //add index of accounts here
     _data[kunci]['abilityScores']['str'] = value1;
     _data[kunci]['abilityScores']['dex'] = value2;
@@ -59,6 +59,11 @@ class MainModel extends Model {
     _data[kunci]['abilityScores']['wis'] = value5;
     _data[kunci]['abilityScores']['cha'] = value6;
     _data[kunci]['abilityScores']['maxtick'] = value7;
+    _data[kunci]['abilityScores']['inspiration'] = value8;
+    _data[kunci]['abilityScores']['proficiency'] = value9;
+    _data[kunci]['abilityScores']['perception'] = value10;
+    _data[kunci]['abilityScores']['savingThrows'] = value11;
+    _data[kunci]['abilityScores']['skills'] = value12;
     notifyListeners();
   }
 
@@ -117,12 +122,12 @@ class MainModel extends Model {
         "damage": [],
         "type": []
       },
-      "proficiency": {
+      "proficiencies": {
         "languange": [],
         "other": []
       },
       "inventory": {
-        "inv": [],
+        "inv": ["a backpack"],
         "treasure": []
       },
       "allies": {

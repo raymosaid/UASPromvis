@@ -29,7 +29,7 @@ class myDrawer extends StatelessWidget {
             child: Column(
               children: [
                 CircleAvatar(
-                  backgroundImage: NetworkImage('https://github.com/raymosaid/UASPromvis/blob/main/images/profile2test.png'),
+                  backgroundColor: Colors.grey,
                   maxRadius: 40,
                 ),
                 SizedBox(height: 10),

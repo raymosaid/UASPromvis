@@ -21,15 +21,20 @@ class MyApp extends StatelessWidget {
 }
 
 class EquipmentPage extends StatelessWidget {
-  TextEditingController CP = TextEditingController();
-  TextEditingController SP = TextEditingController();
-  TextEditingController EP = TextEditingController();
-  TextEditingController GP = TextEditingController();
-  TextEditingController PP = TextEditingController();
-  TextEditingController Equipment = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
+
+    String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
+
+    TextEditingController CP = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['equipment']['cp'].toString());
+    TextEditingController SP = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['equipment']['sp'].toString());
+    TextEditingController EP = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['equipment']['ep'].toString());
+    TextEditingController GP = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['equipment']['gp'].toString());
+    TextEditingController PP = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['equipment']['pp'].toString());
+    TextEditingController Equipment = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(title: Text('Equipment')),
       body: Row(children: [
