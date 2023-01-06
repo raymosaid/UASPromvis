@@ -166,14 +166,14 @@ class BasicStatsPage extends StatelessWidget {
           onPressed: () {
             ScopedModel.of<MainModel>(context).updateBasicStats(
                 kunci,
-                double.parse(Armor.text),
-                double.parse(Initiative.text),
-                double.parse(Speed.text),
-                double.parse(Points.text),
-                double.parse(HIT.text),
-                double.parse(Temporary.text),
-                double.parse(Total.text),
-                double.parse(Death.text)
+                num.parse(Armor.text),
+                num.parse(Initiative.text),
+                num.parse(Speed.text),
+                num.parse(Points.text),
+                num.parse(HIT.text),
+                num.parse(Temporary.text),
+                num.parse(Total.text),
+                num.parse(Death.text)
             );
           },
           tooltip: 'Save',

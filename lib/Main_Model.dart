@@ -122,7 +122,7 @@ class MainModel extends Model {
 
   void updateInventory(String kunci, String value1, String value2){
     _data[kunci]['inventory']['inv'] = value1;
-    _data[kunci]['inventory']['treasure'] = value1;
+    _data[kunci]['inventory']['treasure'] = value2;
     notifyListeners();
   }
 
