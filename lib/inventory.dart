@@ -27,48 +27,56 @@ class InventoryPage extends StatelessWidget {
 
     String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
 
-    TextEditingController Inventory = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['inventory']['inv'].toString());
-    TextEditingController Treasure = TextEditingController();
+    TextEditingController Inventory = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['inventory']['inv']);
+    TextEditingController Treasure = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['inventory']['treasure']);
     return Scaffold(
       appBar: AppBar(
         title: Text("Inventory"),
       ),
       drawer: myDrawer(),
-      body: Center(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.height * 0.8,
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: TextField(
-                  maxLines: 5,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.all(10),
-                    labelText: 'Inventory',
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: TextField(
+                    maxLines: 5,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Inventory',
+                    ),
+                    textAlign: TextAlign.left,
+                    controller: Inventory,
                   ),
-                  textAlign: TextAlign.left,
-                  controller: Inventory,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: TextField(
-                  maxLines: 5,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.all(10),
-                    labelText: 'Treasure',
-                  ),
-                  textAlign: TextAlign.left,
-                  controller: Treasure,
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
-        ),
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: TextField(
+                    maxLines: 5,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Treasures',
+                    ),
+                    textAlign: TextAlign.left,
+                    controller: Treasure,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
