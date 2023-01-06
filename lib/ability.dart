@@ -4,13 +4,11 @@ import 'Main_Model.dart';
 import 'dart:math' as math;
 import 'drawer.dart';
 
-
 void main() {
   runApp(ScopedModel(
-      model: MainModel(),
-      child: MyApp(),
-  )
-  );
+    model: MainModel(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -25,21 +23,52 @@ class MyApp extends StatelessWidget {
 
 class AbilityPage extends StatelessWidget {
   @override
-  num max = 0;
-  TextEditingController STR = TextEditingController();
-  TextEditingController DEX = TextEditingController();
-  TextEditingController CON = TextEditingController();
-  TextEditingController INT = TextEditingController();
-  TextEditingController WIS = TextEditingController();
-  TextEditingController CHA = TextEditingController();
-  TextEditingController Inspiration = TextEditingController();
-  TextEditingController Proficiency = TextEditingController();
-  TextEditingController Perception = TextEditingController();
-  TextEditingController Saving = TextEditingController();
-  TextEditingController Skills = TextEditingController();
-
   Widget build(BuildContext context) {
     String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
+    num max = 0;
+    TextEditingController STR = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['abilityScores']['str']
+            .toString());
+    TextEditingController DEX = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['abilityScores']['dex']
+            .toString());
+    TextEditingController CON = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['abilityScores']['con']
+            .toString());
+    TextEditingController INT = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['abilityScores']['int']
+            .toString());
+    TextEditingController WIS = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['abilityScores']['wis']
+            .toString());
+    TextEditingController CHA = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['abilityScores']['cha']
+            .toString());
+    TextEditingController Inspiration = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['abilityScores']['inspiration']
+            .toString());
+    TextEditingController Proficiency = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['abilityScores']['proficiency']
+            .toString());
+    TextEditingController Perception = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['abilityScores']['perception']
+            .toString());
+    TextEditingController Saving = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['abilityScores']['savingThrows']
+            .toString());
+    TextEditingController Skills = TextEditingController(
+        text: ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']
+            ['skills']);
     return Scaffold(
         appBar: AppBar(
           title: Text('Ability Scores'),
@@ -215,15 +244,30 @@ class AbilityPage extends StatelessWidget {
             ),
           ],
         ),
-      floatingActionButton: FloatingActionButton(
-      onPressed: () {
-        max = math.max(math.max(double.parse(STR.text), double.parse(DEX.text)),math.max(math.max(double.parse(CON.text),double.parse(INT.text)), math.max(double.parse(WIS.text), double.parse(CHA.text))));
-        ScopedModel.of<MainModel>(context).updateAbility(kunci,double.parse(STR.text), double.parse(DEX.text), double.parse(CON.text), double.parse(INT.text), double.parse(WIS.text), double.parse(CHA.text), max);
-        },
-      tooltip: 'Save',
-      child: const Icon(Icons.add),
-
-      )
-    );
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            max = math.max(
+                math.max(double.parse(STR.text), double.parse(DEX.text)),
+                math.max(
+                    math.max(double.parse(CON.text), double.parse(INT.text)),
+                    math.max(double.parse(WIS.text), double.parse(CHA.text))));
+            ScopedModel.of<MainModel>(context).updateAbility(
+                kunci,
+                double.parse(STR.text),
+                double.parse(DEX.text),
+                double.parse(CON.text),
+                double.parse(INT.text),
+                double.parse(WIS.text),
+                double.parse(CHA.text),
+                max,
+                double.parse(Inspiration.text),
+                double.parse(Proficiency.text),
+                double.parse(Perception.text),
+                double.parse(Saving.text),
+                Skills.text);
+          },
+          tooltip: 'Save',
+          child: const Icon(Icons.add),
+        ));
   }
 }

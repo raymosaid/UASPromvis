@@ -21,11 +21,14 @@ class MyApp extends StatelessWidget {
 }
 
 class InventoryPage extends StatelessWidget {
-  TextEditingController Inventory = TextEditingController();
-  TextEditingController Treasure = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+
+    String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
+
+    TextEditingController Inventory = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['inventory']['inv'].toString());
+    TextEditingController Treasure = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: Text("Inventory"),
@@ -40,7 +43,7 @@ class InventoryPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(10),
                 child: TextField(
-                  maxLines: 40,
+                  maxLines: 5,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.all(10),
@@ -53,7 +56,7 @@ class InventoryPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(10),
                 child: TextField(
-                  maxLines: 40,
+                  maxLines: 5,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.all(10),

@@ -34,7 +34,7 @@ class PersonalityPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(title: Text('Personality and Background')),
 
-      body: Column(
+      body: ListView(
           children: [
             Padding(
               padding: EdgeInsets.all(20),
