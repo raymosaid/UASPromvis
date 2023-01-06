@@ -67,6 +67,38 @@ class MainModel extends Model {
     notifyListeners();
   }
 
+  void updateBasicStats(String kunci, num value1, value2, value3, value4, value5, value6, value7, value8) {
+    _data[kunci]['basicStats']['armor'] = value1;
+    _data[kunci]['basicStats']['initiative'] = value2;
+    _data[kunci]['basicStats']['speed'] = value3;
+    _data[kunci]['basicStats']['maxhp'] = value4;
+    _data[kunci]['basicStats']['hp'] = value5;
+    _data[kunci]['basicStats']['temphp'] = value6;
+    _data[kunci]['basicStats']['totalhitdice'] = value7;
+    _data[kunci]['basicStats']['deathsaves'] = value8;
+    notifyListeners();
+  }
+
+  void updatePersonality(String kunci, String value1, String value2, String value3, String value4){
+    _data[kunci]['personality']['traits'] = value1;
+    _data[kunci]['personality']['ideals'] = value1;
+    _data[kunci]['personality']['bonds'] = value1;
+    _data[kunci]['personality']['flaws'] = value1;
+    notifyListeners();
+  }
+
+  void updateEquipment(String kunci, num value1, num value2, num value3, num value4, num value5, String value6){
+    _data[kunci]['equipment']['cp'] = value1;
+    _data[kunci]['equipment']['sp'] = value2;
+    _data[kunci]['equipment']['ep'] = value3;
+    _data[kunci]['equipment']['gp'] = value4;
+    _data[kunci]['equipment']['pp'] = value5;
+    _data[kunci]['equipment']['equipments'] = value6;
+    notifyListeners();
+  }
+
+
+
   void deleteAccount(String kunci) {
     //disini remove account dengan memberi nama account, contoh: deleteAccount('account 1')
     _data.remove(kunci);
@@ -95,18 +127,18 @@ class MainModel extends Model {
       "basicStats": {
         "armor": 0,
         "initiative": 0,
+        "speed": 0,
         "maxhp": 0,
         "hp": 0,
         "temphp": 0,
         "totalhitdice": 0,
-        "hitdice": 0,
         "deathsaves": 0
       },
       "personality": {
-        "traits": [],
-        "ideals": [],
-        "Bonds": [],
-        "Flaws": []
+        "traits": "",
+        "ideals": "",
+        "Bonds": "",
+        "Flaws": ""
       },
       "equipment": {
         "cp": 0,
@@ -114,24 +146,19 @@ class MainModel extends Model {
         "ep": 0,
         "gp": 0,
         "pp": 0,
-        "equipments": []
+        "equipments": ""
       },
-      "attacks": {
-        "name": [],
-        "atk": [],
-        "damage": [],
-        "type": []
-      },
+      "attacks": "",
       "proficiencies": {
-        "languange": [],
-        "other": []
+        "languange": "",
+        "other": ""
       },
       "inventory": {
-        "inv": ["a backpack"],
-        "treasure": []
+        "inv": "a backpack",
+        "treasure": ""
       },
       "allies": {
-        "list": []
+        "list": ""
       }
     };
   }

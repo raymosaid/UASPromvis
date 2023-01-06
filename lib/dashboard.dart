@@ -128,6 +128,10 @@ class Dashboard extends StatelessWidget {
                   Column(
                     children: [
                       Container(
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black)
+                          ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -138,6 +142,10 @@ class Dashboard extends StatelessWidget {
                           ],
                         )),
                       Container(
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black)
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -148,6 +156,10 @@ class Dashboard extends StatelessWidget {
                             ],
                           )),
                       Container(
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black)
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -158,6 +170,10 @@ class Dashboard extends StatelessWidget {
                             ],
                           )),
                       Container(
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black)
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -168,6 +184,10 @@ class Dashboard extends StatelessWidget {
                             ],
                           )),
                       Container(
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black)
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -179,8 +199,11 @@ class Dashboard extends StatelessWidget {
                           )),
                     ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(20),
+                  Container(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black)
+                    ),
                       child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

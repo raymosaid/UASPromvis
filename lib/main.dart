@@ -34,7 +34,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     int kunci = ScopedModel.of<MainModel>(context).getNumberOfAccounts();
@@ -65,12 +64,19 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.all(4),
               elevation: 8,
               child: ListTile(
-                title: Text(
-                    ScopedModel.of<MainModel>(context).data[daftar[index]]['name']),
-                subtitle: Text(
-                    ScopedModel.of<MainModel>(context).data[daftar[index]]['race']),
-                trailing: Text(
-                    ScopedModel.of<MainModel>(context).data[daftar[index]]['class']),
+                title: Text(ScopedModel.of<MainModel>(context)
+                    .data[daftar[index]]['name']),
+                subtitle: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Column(
+                          children: [
+                            Text(ScopedModel.of<MainModel>(context).data[daftar[index]]['race']),
+                            Text(ScopedModel.of<MainModel>(context).data[daftar[index]]['class'])
+                          ]
+                      ),
+                    ]
+                ),
                 onTap: () {
                   ScopedModel.of<MainModel>(context).updateChosenAcc(index);
                   Navigator.push(
