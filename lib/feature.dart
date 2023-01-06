@@ -37,12 +37,12 @@ class FeaturePage extends StatelessWidget {
           title: Text("Character Features"),
         ),
         drawer: myDrawer(),
-        body: Center(
-            child: Column(
+        body: ListView(
           children: [
             Padding(
               padding: EdgeInsets.all(20),
-              child: Row(mainAxisAlignment: MainAxisAlignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
@@ -84,7 +84,8 @@ class FeaturePage extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.all(10),
-              child: Row(mainAxisAlignment: MainAxisAlignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
@@ -133,10 +134,10 @@ class FeaturePage extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.9,
                     child: TextField(
-                      maxLines: 5,
+                      maxLines: 10,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.all(75),
+                        contentPadding: EdgeInsets.all(20),
                         labelText: 'Additional Traits',
                       ),
                       textAlign: TextAlign.left,
@@ -154,10 +155,10 @@ class FeaturePage extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.9,
                     child: TextField(
-                      maxLines: 5,
+                      maxLines: 10,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.all(75),
+                        contentPadding: EdgeInsets.all(20),
                         labelText: 'Character Backstory',
                       ),
                       textAlign: TextAlign.left,
@@ -168,6 +169,6 @@ class FeaturePage extends StatelessWidget {
               ),
             ),
           ],
-        )));
+        ));
   }
 }

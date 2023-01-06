@@ -28,7 +28,7 @@ class ProficiencyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Character Proficiencies"),
+        title: Text("Character Proficiency"),
       ),
       drawer: myDrawer(),
       body: Column(
