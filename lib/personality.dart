@@ -42,9 +42,10 @@ class PersonalityPage extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: TextField(
+                    maxLines: 5,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.all(60),
+                      contentPadding: EdgeInsets.all(10),
                       labelText: 'Personality Traits',
                     ),
                     textAlign: TextAlign.left,
@@ -59,9 +60,10 @@ class PersonalityPage extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: TextField(
+                    maxLines: 5,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.all(60),
+                      contentPadding: EdgeInsets.all(10),
                       labelText: 'Ideals',
                     ),
                     textAlign: TextAlign.left,
@@ -76,9 +78,10 @@ class PersonalityPage extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: TextField(
+                    maxLines: 5,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.all(60),
+                      contentPadding: EdgeInsets.all(10),
                       labelText: 'Bonds',
                     ),
                     textAlign: TextAlign.left,
@@ -93,9 +96,10 @@ class PersonalityPage extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: TextField(
+                    maxLines: 5,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.all(60),
+                      contentPadding: EdgeInsets.all(10),
                       labelText: 'Flaws',
                     ),
                     textAlign: TextAlign.left,

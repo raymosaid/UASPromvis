@@ -7,8 +7,7 @@ void main() {
   runApp(ScopedModel(
     model: MainModel(),
     child: MyApp(),
-  )
-  );
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -22,19 +21,48 @@ class MyApp extends StatelessWidget {
 }
 
 class InventoryPage extends StatelessWidget {
-  TextEditingController AttackStats = TextEditingController();
+  TextEditingController Inventory = TextEditingController();
+  TextEditingController Treasure = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-        title: Text("Attacks and Spellcastings"),
+        title: Text("Inventory"),
       ),
       drawer: myDrawer(),
       body: Center(
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.8,
+          height: MediaQuery.of(context).size.height * 0.8,
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    contentPadding: EdgeInsets.all(10),
+                    labelText: 'Inventory',
+                  ),
+                  textAlign: TextAlign.left,
+                  controller: Inventory,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    contentPadding: EdgeInsets.all(10),
+                    labelText: 'Treasure',
+                  ),
+                  textAlign: TextAlign.left,
+                  controller: Treasure,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

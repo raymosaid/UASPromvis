@@ -42,6 +42,7 @@ class AddcharState extends State<Addchar> {
                 SizedBox(
                   width: 300,
                   child: TextField(
+                    textAlign: TextAlign.center,
                   controller: nama,
                   ),
                 ),

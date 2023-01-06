@@ -22,19 +22,33 @@ class MyApp extends StatelessWidget {
 }
 
 class AlliesPage extends StatelessWidget {
-  TextEditingController AttackStats = TextEditingController();
+  TextEditingController Allies = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Attacks and Spellcastings"),
+        title: Text("Allies"),
       ),
       drawer: myDrawer(),
       body: Center(
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.8,
+          height: MediaQuery.of(context).size.width * 0.8,
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: TextField(
+              maxLines: 100,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              contentPadding: EdgeInsets.all(10),
+              labelText: 'Allies',
+            ),
+            textAlign: TextAlign.left,
+            controller: Allies,
+          ),
+          )
         ),
       ),
     );

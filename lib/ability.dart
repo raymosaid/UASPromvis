@@ -64,6 +64,7 @@ class AbilityPage extends StatelessWidget {
                 SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
                     child: TextField(
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'STR',
@@ -76,6 +77,7 @@ class AbilityPage extends StatelessWidget {
                   child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.3,
                       child: TextField(
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'DEX',
@@ -87,6 +89,7 @@ class AbilityPage extends StatelessWidget {
                 SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
                     child: TextField(
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'CON',
@@ -103,6 +106,7 @@ class AbilityPage extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.3,
                   child: TextField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'INT',
@@ -116,6 +120,7 @@ class AbilityPage extends StatelessWidget {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
                     child: TextField(
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'WIS',
@@ -128,6 +133,7 @@ class AbilityPage extends StatelessWidget {
                 SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
                     child: TextField(
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'CHA',
