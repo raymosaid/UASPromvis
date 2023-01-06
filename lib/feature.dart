@@ -40,7 +40,7 @@ class FeaturePage extends StatelessWidget {
         body: ListView(
           children: [
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -127,7 +127,7 @@ class FeaturePage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
