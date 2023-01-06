@@ -55,15 +55,18 @@ class FeaturePage extends StatelessWidget {
                       controller: Age,
                     ),
                   ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.3,
-                    child: TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          contentPadding: EdgeInsets.all(5),
-                          labelText: "Height"),
-                      textAlign: TextAlign.center,
-                      controller: Height,
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            contentPadding: EdgeInsets.all(5),
+                            labelText: "Height"),
+                        textAlign: TextAlign.center,
+                        controller: Height,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -94,15 +97,18 @@ class FeaturePage extends StatelessWidget {
                       controller: Eyes,
                     ),
                   ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.3,
-                    child: TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          contentPadding: EdgeInsets.all(5),
-                          labelText: "Skin"),
-                      textAlign: TextAlign.center,
-                      controller: Skin,
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            contentPadding: EdgeInsets.all(5),
+                            labelText: "Skin"),
+                        textAlign: TextAlign.center,
+                        controller: Skin,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -130,7 +136,7 @@ class FeaturePage extends StatelessWidget {
                       maxLines: 5,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.all(10),
+                        contentPadding: EdgeInsets.all(75),
                         labelText: 'Additional Traits',
                       ),
                       textAlign: TextAlign.left,
@@ -151,7 +157,7 @@ class FeaturePage extends StatelessWidget {
                       maxLines: 5,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.all(10),
+                        contentPadding: EdgeInsets.all(75),
                         labelText: 'Character Backstory',
                       ),
                       textAlign: TextAlign.left,
