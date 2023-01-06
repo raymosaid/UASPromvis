@@ -178,6 +178,7 @@ class BasicStatsPage extends StatelessWidget {
           },
           tooltip: 'Save',
           child: const Icon(Icons.add),
-        ));
+        )
+    );
   }
 }

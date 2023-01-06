@@ -33,7 +33,7 @@ class EquipmentPage extends StatelessWidget {
     TextEditingController EP = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['equipment']['ep'].toString());
     TextEditingController GP = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['equipment']['gp'].toString());
     TextEditingController PP = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['equipment']['pp'].toString());
-    TextEditingController Equipment = TextEditingController();
+    TextEditingController Equipment = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['equipment']['equipments']);
 
     return Scaffold(
       appBar: AppBar(title: Text('Equipment')),
@@ -135,6 +135,21 @@ class EquipmentPage extends StatelessWidget {
         ),
       ]),
       drawer: myDrawer(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            ScopedModel.of<MainModel>(context).updateEquipment(
+                kunci,
+                double.parse(CP.text),
+                double.parse(SP.text),
+                double.parse(EP.text),
+                double.parse(GP.text),
+                double.parse(PP.text),
+                Equipment.text
+            );
+          },
+          tooltip: 'Save',
+          child: const Icon(Icons.add),
+        )
     );
   }
 }
