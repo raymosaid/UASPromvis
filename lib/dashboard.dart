@@ -10,24 +10,17 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return ScopedModel(
         model: MainModel(),
-        child: MaterialApp(
-            home: Dashboard(),
-            debugShowCheckedModeBanner: false
-        )
-    );
+        child:
+            MaterialApp(home: Dashboard(), debugShowCheckedModeBanner: false));
   }
 }
 
 class Dashboard extends StatelessWidget {
-
-
   @override
-
   Widget build(BuildContext context) {
     String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
 
@@ -85,99 +78,125 @@ class Dashboard extends StatelessWidget {
                     "CHA"
                   ], data: [
                     [
-                      ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['str'],
-                      ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['dex'],
-                      ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['con'],
-                      ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['int'],
-                      ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['wis'],
-                      ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['cha']
+                      ScopedModel.of<MainModel>(context).data[kunci]
+                          ['abilityScores']['str'],
+                      ScopedModel.of<MainModel>(context).data[kunci]
+                          ['abilityScores']['dex'],
+                      ScopedModel.of<MainModel>(context).data[kunci]
+                          ['abilityScores']['con'],
+                      ScopedModel.of<MainModel>(context).data[kunci]
+                          ['abilityScores']['int'],
+                      ScopedModel.of<MainModel>(context).data[kunci]
+                          ['abilityScores']['wis'],
+                      ScopedModel.of<MainModel>(context).data[kunci]
+                          ['abilityScores']['cha']
                     ]
-                  ])
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Inspiration : "),
-                    Text(ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['inspiration'].toString())
-                  ],
-                )
-              ),
+                  ])),
               Container(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Inspiration : "),
+                  Text(ScopedModel.of<MainModel>(context)
+                      .data[kunci]['abilityScores']['inspiration']
+                      .toString())
+                ],
+              )),
+              Container(
+                  child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Proficiency Bonus : "),
+                  Text(ScopedModel.of<MainModel>(context)
+                      .data[kunci]['abilityScores']['proficiency']
+                      .toString())
+                ],
+              )),
+              Container(
+                  child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Perception : "),
+                  Text(ScopedModel.of<MainModel>(context)
+                      .data[kunci]['abilityScores']['perception']
+                      .toString())
+                ],
+              )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
                     children: [
-                      Text("Proficiency Bonus : "),
-                      Text(ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['proficiency'].toString())
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("CP : "),
+                            Text(ScopedModel.of<MainModel>(context)
+                                .data[kunci]['equipment']['cp']
+                                .toString())
+                          ],
+                        )),
+                      Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("SP : "),
+                              Text(ScopedModel.of<MainModel>(context)
+                                  .data[kunci]['equipment']['sp']
+                                  .toString())
+                            ],
+                          )),
+                      Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("EP : "),
+                              Text(ScopedModel.of<MainModel>(context)
+                                  .data[kunci]['equipment']['ep']
+                                  .toString())
+                            ],
+                          )),
+                      Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("GP : "),
+                              Text(ScopedModel.of<MainModel>(context)
+                                  .data[kunci]['equipment']['gp']
+                                  .toString())
+                            ],
+                          )),
+                      Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("PP : "),
+                              Text(ScopedModel.of<MainModel>(context)
+                                  .data[kunci]['equipment']['pp']
+                                  .toString())
+                            ],
+                          )),
                     ],
-                  )
-              ),
-              Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Perception : "),
-                      Text(ScopedModel.of<MainModel>(context).data[kunci]['abilityScores']['perception'].toString())
-                    ],
-                  )
-              ),
-              Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("CP : "),
-                      Text(ScopedModel.of<MainModel>(context).data[kunci]['equipment']['cp'].toString())
-                    ],
-                  )
-              ),
-              Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("SP : "),
-                      Text(ScopedModel.of<MainModel>(context).data[kunci]['equipment']['sp'].toString())
-                    ],
-                  )
-              ),
-              Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("EP : "),
-                      Text(ScopedModel.of<MainModel>(context).data[kunci]['equipment']['ep'].toString())
-                    ],
-                  )
-              ),
-              Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("GP : "),
-                      Text(ScopedModel.of<MainModel>(context).data[kunci]['equipment']['gp'].toString())
-                    ],
-                  )
-              ),
-              Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("PP : "),
-                      Text(ScopedModel.of<MainModel>(context).data[kunci]['equipment']['pp'].toString())
-                    ],
-                  )
-              ),
-              Container(
-                  child: Row(
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(20),
+                      child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("Inventory : "),
-                      Text(ScopedModel.of<MainModel>(context).data[kunci]['inventory']['inv'].toString(), maxLines: 5,)
+                      Text(
+                        ScopedModel.of<MainModel>(context)
+                            .data[kunci]['inventory']['inv']
+                            .toString(),
+                        maxLines: 5,
+                      )
                     ],
-                  )
-              ),
+                  )),
+                ],
+              )
             ],
           ),
-        )
-    );
+        ));
   }
 }
