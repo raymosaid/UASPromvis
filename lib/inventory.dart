@@ -21,11 +21,14 @@ class MyApp extends StatelessWidget {
 }
 
 class InventoryPage extends StatelessWidget {
-  TextEditingController Inventory = TextEditingController();
-  TextEditingController Treasure = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+
+    String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
+
+    TextEditingController Inventory = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['inventory']['inv'].toString());
+    TextEditingController Treasure = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: Text("Inventory"),
