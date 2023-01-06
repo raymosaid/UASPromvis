@@ -27,7 +27,7 @@ class Dashboard extends StatelessWidget {
 
 
   @override
-  final profile = File('images/profile2test.png');
+  final profile = Image.network('https://github.com/raymosaid/UASPromvis/blob/main/images/profile2test.png');
 
   Widget build(BuildContext context) {
     String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
@@ -44,7 +44,7 @@ class Dashboard extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                 height: 100,
                 width: 100,
-                child: Image.file(profile),
+                child: profile,
               ),
               Container(
                 width: 300,

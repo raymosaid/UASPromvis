@@ -24,7 +24,7 @@ class myDrawer extends StatelessWidget {
             child: Column(
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage('images/profile2test.png'),
+                  backgroundImage: NetworkImage('https://github.com/raymosaid/UASPromvis/blob/main/images/profile2test.png'),
                   maxRadius: 40,
                 ),
                 SizedBox(height: 10),
@@ -104,30 +104,55 @@ class myDrawer extends StatelessWidget {
           ListTile(
               title: Text("Attacks and Spellcasting"),
               onTap: () {
-                Navigator.of(context).pushNamed("/");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AttackPage(),
+                  ),
+                );
               }
           ),
           ListTile(
               title: Text("Character Features"),
               onTap: () {
-                Navigator.of(context).pushNamed("/");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FeaturePage(),
+                  ),
+                );
               }
           ),
           ListTile(
               title: Text("Character Proficiency"),
               onTap: () {
-                Navigator.of(context).pushNamed("/");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProficiencyPage(),
+                  ),
+                );
               }
           ),
           ListTile(
               title: Text("Inventory"),
               onTap: () {
-                Navigator.of(context).pushNamed("/");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => InventoryPage(),
+                  ),
+                );
               }
           ), ListTile(
               title: Text("Allies and Organizations"),
               onTap: () {
-                Navigator.of(context).pushNamed("/");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AlliesPage(),
+                  ),
+                );
               }
           ),
           Container(
