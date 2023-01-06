@@ -23,14 +23,16 @@ class MyApp extends StatelessWidget {
 }
 
 class PersonalityPage extends StatelessWidget {
-  TextEditingController Personality = TextEditingController();
-  TextEditingController Ideals = TextEditingController();
-  TextEditingController Bonds = TextEditingController();
-  TextEditingController Flaws = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
+
+    TextEditingController Personality = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['personality']['traits']);
+    TextEditingController Ideals = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['personality']['ideals']);
+    TextEditingController Bonds = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['personality']['bonds']);
+    TextEditingController Flaws = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['personality']['flaws']);
+
     return Scaffold(
         appBar: AppBar(title: Text('Personality and Background')),
 
@@ -111,6 +113,19 @@ class PersonalityPage extends StatelessWidget {
           ]),
 
       drawer: myDrawer(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScopedModel.of<MainModel>(context).updatePersonality(
+              kunci,
+              Personality.text,
+              Ideals.text,
+              Bonds.text,
+              Flaws.text,
+          );
+        },
+        tooltip: 'Save',
+        child: const Icon(Icons.add),
+      )
     );
   }
 }
