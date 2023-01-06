@@ -7,8 +7,7 @@ void main() {
   runApp(ScopedModel(
     model: MainModel(),
     child: MyApp(),
-  )
-  );
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -22,20 +21,61 @@ class MyApp extends StatelessWidget {
 }
 
 class ProficiencyPage extends StatelessWidget {
-  TextEditingController AttackStats = TextEditingController();
+  TextEditingController Language = TextEditingController();
+  TextEditingController OtherProficiencies = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-        title: Text("Character Proficiencies"),
+        title: Text("Attacks and Spellcastings"),
       ),
       drawer: myDrawer(),
-      body: Center(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.8,
-        ),
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: TextField(
+                    maxLines: 5,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      contentPadding: EdgeInsets.all(10),
+                      labelText: 'Language',
+                    ),
+                    textAlign: TextAlign.left,
+                    controller: Language,
+                  ),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: TextField(
+                    maxLines: 5,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      contentPadding: EdgeInsets.all(10),
+                      labelText: 'Other Proficiencies',
+                    ),
+                    textAlign: TextAlign.left,
+                    controller: OtherProficiencies,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
