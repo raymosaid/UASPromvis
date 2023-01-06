@@ -27,8 +27,8 @@ class FeaturePage extends StatelessWidget {
   TextEditingController Eyes = TextEditingController();
   TextEditingController Skin = TextEditingController();
   TextEditingController Hair = TextEditingController();
-  //TextEditingController AdditionalTraits = TextEditingController();
-  //TextEditingController CharacterBackstory = TextEditingController();
+  TextEditingController AdditionalTraits = TextEditingController();
+  TextEditingController CharacterBackstory = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class FeaturePage extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.all(20),
-              child: Row(
+              child: Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
@@ -80,8 +80,8 @@ class FeaturePage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(20),
-              child: Row(
+              padding: EdgeInsets.all(10),
+              child: Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
@@ -118,7 +118,49 @@ class FeaturePage extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    child: TextField(
+                      maxLines: 5,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        contentPadding: EdgeInsets.all(10),
+                        labelText: 'Additional Traits',
+                      ),
+                      textAlign: TextAlign.left,
+                      controller: AdditionalTraits,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    child: TextField(
+                      maxLines: 5,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        contentPadding: EdgeInsets.all(10),
+                        labelText: 'Character Backstory',
+                      ),
+                      textAlign: TextAlign.left,
+                      controller: CharacterBackstory,
+                    ),
+                  )
+                ],
+              ),
+            ),
           ],
         )));
   }
