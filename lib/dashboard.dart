@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uaspromvisray/abilitychart.dart';
-import 'dart:io';
 import 'package:scoped_model/scoped_model.dart';
 import 'Main_Model.dart';
 import 'drawer.dart';

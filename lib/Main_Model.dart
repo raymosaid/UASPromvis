@@ -81,9 +81,9 @@ class MainModel extends Model {
 
   void updatePersonality(String kunci, String value1, String value2, String value3, String value4){
     _data[kunci]['personality']['traits'] = value1;
-    _data[kunci]['personality']['ideals'] = value1;
-    _data[kunci]['personality']['bonds'] = value1;
-    _data[kunci]['personality']['flaws'] = value1;
+    _data[kunci]['personality']['ideals'] = value2;
+    _data[kunci]['personality']['bonds'] = value3;
+    _data[kunci]['personality']['flaws'] = value4;
     notifyListeners();
   }
 
