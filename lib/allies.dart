@@ -29,7 +29,7 @@ class AlliesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Attacks and Spellcastings"),
+        title: Text("Allies and Organizations"),
       ),
       drawer: myDrawer(),
       body: Center(

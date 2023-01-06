@@ -29,7 +29,7 @@ class ProficiencyPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Attacks and Spellcastings"),
+        title: Text("Character Proficiencies"),
       ),
       drawer: myDrawer(),
       body: Center(

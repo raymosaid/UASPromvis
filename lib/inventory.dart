@@ -29,7 +29,7 @@ class InventoryPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Attacks and Spellcastings"),
+        title: Text("Inventory"),
       ),
       drawer: myDrawer(),
       body: Center(
