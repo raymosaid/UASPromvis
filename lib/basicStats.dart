@@ -44,7 +44,6 @@ class BasicStatsPage extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.all(75),
                     labelText: 'Armor Class',
                   ),
                   textAlign: TextAlign.center,
@@ -58,7 +57,6 @@ class BasicStatsPage extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.all(75),
                       labelText: 'Initiative',
                     ),
                     textAlign: TextAlign.center,
@@ -71,7 +69,6 @@ class BasicStatsPage extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.all(75),
                       labelText: 'Speed',
                     ),
                     textAlign: TextAlign.center,
@@ -85,9 +82,9 @@ class BasicStatsPage extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.92,
                 child: TextField(
+                  maxLines: 2,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.all(20),
                     labelText: 'Maximum HIT Points',
                   ),
                   textAlign: TextAlign.center,
@@ -102,9 +99,9 @@ class BasicStatsPage extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.92,
                 child: TextField(
+                  maxLines: 3,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.all(20),
                     labelText: 'Current HIT Points',
                   ),
                   textAlign: TextAlign.center,
@@ -115,13 +112,15 @@ class BasicStatsPage extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.all(20),
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.92,
                 child: TextField(
+                  maxLines: 3,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.all(60),
                     labelText: 'Temporary HIT Points',
                   ),
                   textAlign: TextAlign.center,
@@ -138,9 +137,9 @@ class BasicStatsPage extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
                     child: TextField(
+                      maxLines: 5,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.all(90),
                         labelText: 'Total HIT Dice',
                       ),
                       textAlign: TextAlign.center,
@@ -150,9 +149,9 @@ class BasicStatsPage extends StatelessWidget {
                   SizedBox(
                       width: MediaQuery.of(context).size.width * 0.3,
                       child: TextField(
+                        maxLines: 5,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          contentPadding: EdgeInsets.all(90),
                           labelText: 'Death Saves',
                         ),
                         textAlign: TextAlign.center,
