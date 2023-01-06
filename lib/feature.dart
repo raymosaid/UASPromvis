@@ -42,7 +42,7 @@ class FeaturePage extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.all(20),
-              child: Row(
+              child: Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
@@ -80,8 +80,8 @@ class FeaturePage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(20),
-              child: Row(
+              padding: EdgeInsets.all(10),
+              child: Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
