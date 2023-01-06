@@ -22,10 +22,12 @@ class MyApp extends StatelessWidget {
 }
 
 class AttackPage extends StatelessWidget {
-  TextEditingController AttackStats = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
+    String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
+    TextEditingController AttackStats = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['attacks']);
 
     return Scaffold(
       appBar: AppBar(
@@ -48,6 +50,15 @@ class AttackPage extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScopedModel.of<MainModel>(context).updateAttacks(
+              kunci, AttackStats.text
+          );
+        },
+        tooltip: 'Save',
+        child: const Icon(Icons.add),
+      )
     );
   }
 }

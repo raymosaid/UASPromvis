@@ -97,7 +97,39 @@ class MainModel extends Model {
     notifyListeners();
   }
 
+  void updateAttacks(String kunci, String value1){
+    _data[kunci]['attacks'] = value1;
+    notifyListeners();
+  }
 
+  void updateFeatures(String kunci, num value1, num value2, num value3, String value4, String value5, String value6, String value7, String value8){
+    _data[kunci]['features']['age'] = value1;
+    _data[kunci]['features']['height'] = value2;
+    _data[kunci]['features']['weight'] = value3;
+    _data[kunci]['features']['eyes'] = value4;
+    _data[kunci]['features']['skin'] = value5;
+    _data[kunci]['features']['hair'] = value6;
+    _data[kunci]['features']['additional'] = value7;
+    _data[kunci]['features']['backstory'] = value8;
+    notifyListeners();
+  }
+
+  void updateProficiency(String kunci, String value1, String value2){
+    _data[kunci]['proficiencies']['languange'] = value1;
+    _data[kunci]['proficiencies']['other'] = value2;
+    notifyListeners();
+  }
+
+  void updateInventory(String kunci, String value1, String value2){
+    _data[kunci]['inventory']['inv'] = value1;
+    _data[kunci]['inventory']['treasure'] = value1;
+    notifyListeners();
+  }
+
+  void updateAllies(String kunci, String value){
+    _data[kunci]['allies'] = value;
+    notifyListeners();
+  }
 
   void deleteAccount(String kunci) {
     //disini remove account dengan memberi nama account, contoh: deleteAccount('account 1')
@@ -153,13 +185,21 @@ class MainModel extends Model {
         "languange": "",
         "other": ""
       },
+      "features":{
+        "age": 0,
+        "height": 0,
+        "weight": 0,
+        "eyes": "",
+        "skin": "",
+        "hair": "",
+        "additional": "",
+        "backstory": ""
+      },
       "inventory": {
         "inv": "a backpack",
         "treasure": ""
       },
-      "allies": {
-        "list": ""
-      }
+      "allies": ""
     };
   }
 }

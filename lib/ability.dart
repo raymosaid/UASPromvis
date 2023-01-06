@@ -268,6 +268,7 @@ class AbilityPage extends StatelessWidget {
           },
           tooltip: 'Save',
           child: const Icon(Icons.add),
-        ));
+        )
+    );
   }
 }

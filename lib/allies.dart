@@ -22,10 +22,13 @@ class MyApp extends StatelessWidget {
 }
 
 class AlliesPage extends StatelessWidget {
-  TextEditingController Allies = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+
+    String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
+
+    TextEditingController Allies = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['allies']);
 
     return Scaffold(
       appBar: AppBar(
@@ -51,6 +54,14 @@ class AlliesPage extends StatelessWidget {
           )
         ),
       ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            ScopedModel.of<MainModel>(context).updateAllies(
+                kunci,Allies.text);
+          },
+          tooltip: 'Save',
+          child: const Icon(Icons.add),
+        )
     );
   }
 }

@@ -78,6 +78,15 @@ class InventoryPage extends StatelessWidget {
           ),
         ],
       ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            ScopedModel.of<MainModel>(context).updateInventory(
+                kunci,Inventory.text,
+                Treasure.text);
+          },
+          tooltip: 'Save',
+          child: const Icon(Icons.add),
+        )
     );
   }
 }

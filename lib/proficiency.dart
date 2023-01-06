@@ -21,11 +21,13 @@ class MyApp extends StatelessWidget {
 }
 
 class ProficiencyPage extends StatelessWidget {
-  TextEditingController Language = TextEditingController();
-  TextEditingController OtherProficiencies = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
+
+    TextEditingController Language = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['proficiencies']['languange']);
+    TextEditingController OtherProficiencies = TextEditingController(text: ScopedModel.of<MainModel>(context).data[kunci]['proficiencies']['other']);
     return Scaffold(
       appBar: AppBar(
         title: Text("Character Proficiency"),
@@ -77,6 +79,15 @@ class ProficiencyPage extends StatelessWidget {
           ),
         ],
       ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            ScopedModel.of<MainModel>(context).updateProficiency(
+                kunci, Language.text,
+                OtherProficiencies.text);
+          },
+          tooltip: 'Save',
+          child: const Icon(Icons.add),
+        )
     );
   }
 }

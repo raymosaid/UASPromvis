@@ -21,17 +21,37 @@ class MyApp extends StatelessWidget {
 }
 
 class FeaturePage extends StatelessWidget {
-  TextEditingController Age = TextEditingController();
-  TextEditingController Height = TextEditingController();
-  TextEditingController Weight = TextEditingController();
-  TextEditingController Eyes = TextEditingController();
-  TextEditingController Skin = TextEditingController();
-  TextEditingController Hair = TextEditingController();
-  TextEditingController AdditionalTraits = TextEditingController();
-  TextEditingController CharacterBackstory = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
+    String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
+
+    TextEditingController Age = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['features']['age']
+            .toString());
+    TextEditingController Height = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['features']['height']
+            .toString());
+    TextEditingController Weight = TextEditingController(
+        text: ScopedModel.of<MainModel>(context)
+            .data[kunci]['features']['weight']
+            .toString());
+    TextEditingController Eyes = TextEditingController(
+        text: ScopedModel.of<MainModel>(context).data[kunci]['features']
+            ['eyes']);
+    TextEditingController Skin = TextEditingController(
+        text: ScopedModel.of<MainModel>(context).data[kunci]['features']
+            ['skin']);
+    TextEditingController Hair = TextEditingController(
+        text: ScopedModel.of<MainModel>(context).data[kunci]['features']
+            ['hair']);
+    TextEditingController AdditionalTraits = TextEditingController(
+        text: ScopedModel.of<MainModel>(context).data[kunci]['features']
+            ['additional']);
+    TextEditingController CharacterBackstory = TextEditingController(
+        text: ScopedModel.of<MainModel>(context).data[kunci]['features']
+            ['backstory']);
     return Scaffold(
         appBar: AppBar(
           title: Text("Character Features"),
@@ -169,6 +189,23 @@ class FeaturePage extends StatelessWidget {
               ),
             ),
           ],
-        ));
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            ScopedModel.of<MainModel>(context).updateFeatures(
+                kunci,
+                double.parse(Age.text),
+                double.parse(Height.text),
+                double.parse(Weight.text),
+                Eyes.text,
+                Skin.text,
+                Hair.text,
+                AdditionalTraits.text,
+                CharacterBackstory.text);
+          },
+          tooltip: 'Save',
+          child: const Icon(Icons.add),
+        )
+    );
   }
 }
