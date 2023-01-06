@@ -40,6 +40,7 @@ class InventoryPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(10),
                 child: TextField(
+                  maxLines: 40,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.all(10),
@@ -52,6 +53,7 @@ class InventoryPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(10),
                 child: TextField(
+                  maxLines: 40,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.all(10),

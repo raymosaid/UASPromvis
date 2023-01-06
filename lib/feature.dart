@@ -37,36 +37,45 @@ class FeaturePage extends StatelessWidget {
           title: Text("Character Features"),
         ),
         drawer: myDrawer(),
-        body: Column(
+        body: Center(
+            child: Column(
           children: [
             Padding(
               padding: EdgeInsets.all(20),
               child: Row(
                 children: [
-                  TextField(
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child: TextField(
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.all(5),
                           labelText: "Age"),
-                    textAlign: TextAlign.center,
-                    controller: Age,
+                      textAlign: TextAlign.center,
+                      controller: Age,
+                    ),
                   ),
-                  TextField(
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child: TextField(
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.all(5),
                           labelText: "Height"),
-                    textAlign: TextAlign.center,
-                    controller: Height,
+                      textAlign: TextAlign.center,
+                      controller: Height,
+                    ),
                   ),
-                  TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          contentPadding: EdgeInsets.all(5),
-                          labelText: "Weight"),
-                    textAlign: TextAlign.center,
-                    controller: Weight,
-                  )
+                  SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            contentPadding: EdgeInsets.all(5),
+                            labelText: "Weight"),
+                        textAlign: TextAlign.center,
+                        controller: Weight,
+                      ))
                 ],
               ),
             ),
@@ -74,34 +83,43 @@ class FeaturePage extends StatelessWidget {
               padding: EdgeInsets.all(20),
               child: Row(
                 children: [
-                  TextField(
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child: TextField(
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.all(5),
                           labelText: "Eyes"),
-                    textAlign: TextAlign.center,
-                    controller: Eyes,
+                      textAlign: TextAlign.center,
+                      controller: Eyes,
+                    ),
                   ),
-                  TextField(
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child: TextField(
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.all(5),
                           labelText: "Skin"),
-                    textAlign: TextAlign.center,
-                    controller: Skin,
+                      textAlign: TextAlign.center,
+                      controller: Skin,
+                    ),
                   ),
-                  TextField(
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child: TextField(
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.all(5),
                           labelText: "Hair"),
-                    textAlign: TextAlign.center,
-                    controller: Hair,
-                  )
+                      textAlign: TextAlign.center,
+                      controller: Hair,
+                    ),
+                  ),
                 ],
               ),
             )
           ],
-        ));
+        )));
   }
 }
