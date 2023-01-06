@@ -7,8 +7,7 @@ void main() {
   runApp(ScopedModel(
     model: MainModel(),
     child: MyApp(),
-  )
-  );
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -22,21 +21,87 @@ class MyApp extends StatelessWidget {
 }
 
 class FeaturePage extends StatelessWidget {
-  TextEditingController AttackStats = TextEditingController();
+  TextEditingController Age = TextEditingController();
+  TextEditingController Height = TextEditingController();
+  TextEditingController Weight = TextEditingController();
+  TextEditingController Eyes = TextEditingController();
+  TextEditingController Skin = TextEditingController();
+  TextEditingController Hair = TextEditingController();
+  //TextEditingController AdditionalTraits = TextEditingController();
+  //TextEditingController CharacterBackstory = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Attacks and Spellcastings"),
-      ),
-      drawer: myDrawer(),
-      body: Center(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.8,
+        appBar: AppBar(
+          title: Text("Character Features"),
         ),
-      ),
-    );
+        drawer: myDrawer(),
+        body: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Row(
+                children: [
+                  TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.all(5),
+                          labelText: "Age"),
+                    textAlign: TextAlign.center,
+                    controller: Age,
+                  ),
+                  TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.all(5),
+                          labelText: "Height"),
+                    textAlign: TextAlign.center,
+                    controller: Height,
+                  ),
+                  TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.all(5),
+                          labelText: "Weight"),
+                    textAlign: TextAlign.center,
+                    controller: Weight,
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Row(
+                children: [
+                  TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.all(5),
+                          labelText: "Eyes"),
+                    textAlign: TextAlign.center,
+                    controller: Eyes,
+                  ),
+                  TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.all(5),
+                          labelText: "Skin"),
+                    textAlign: TextAlign.center,
+                    controller: Skin,
+                  ),
+                  TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.all(5),
+                          labelText: "Hair"),
+                    textAlign: TextAlign.center,
+                    controller: Hair,
+                  )
+                ],
+              ),
+            )
+          ],
+        ));
   }
 }

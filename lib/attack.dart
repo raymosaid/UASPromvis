@@ -35,6 +35,17 @@ class AttackPage extends StatelessWidget {
       body: Center(
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.8,
+          height: MediaQuery.of(context).size.height * 0.8,
+          child: TextField(
+            maxLines: 5,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              contentPadding: EdgeInsets.all(10),
+              labelText: "Attacks"
+            ),
+            textAlign: TextAlign.left,
+            controller: AttackStats,
+          ),
         ),
       ),
     );
