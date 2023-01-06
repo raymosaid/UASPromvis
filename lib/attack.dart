@@ -40,7 +40,7 @@ class AttackPage extends StatelessWidget {
             maxLines: 5,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.all(10),
+              contentPadding: EdgeInsets.all(100),
               labelText: "Attacks"
             ),
             textAlign: TextAlign.left,

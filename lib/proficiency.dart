@@ -44,7 +44,7 @@ class ProficiencyPage extends StatelessWidget {
                     maxLines: 5,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.all(10),
+                      contentPadding: EdgeInsets.all(75),
                       labelText: 'Language',
                     ),
                     textAlign: TextAlign.left,
@@ -65,7 +65,7 @@ class ProficiencyPage extends StatelessWidget {
                     maxLines: 5,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.all(10),
+                      contentPadding: EdgeInsets.all(75),
                       labelText: 'Other Proficiencies',
                     ),
                     textAlign: TextAlign.left,
