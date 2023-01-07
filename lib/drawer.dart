@@ -33,9 +33,7 @@ class myDrawer extends StatelessWidget {
                   maxRadius: 40,
                 ),
                 SizedBox(height: 10),
-                Text(ScopedModel
-                    .of<MainModel>(context)
-                    .data[kunci]['name'],
+                Text(kunci,
                     style: TextStyle(fontSize: 15, color: Colors.white)
                 ),
                 Text(ScopedModel

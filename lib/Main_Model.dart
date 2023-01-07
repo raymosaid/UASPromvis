@@ -3,22 +3,20 @@ import 'package:scoped_model/scoped_model.dart';
 class MainModel extends Model {
   Map<String, dynamic> _data = {};
   num _maxtick = 0;
-  int _numberOfAcc = 0;
   List<String> _daftar = [];
-  int _chosen = 0;
+  String _chosen = "";
 
   Map<String, dynamic> get data => _data;
   num get maxtick => _maxtick;
-  int get numberOfAcc => _numberOfAcc;
   List<String> get daftar => _daftar;
-  int get chosen => _chosen;
+  String get chosen => _chosen;
 
   getChosenAcc(){
     notifyListeners();
-    return _chosen + 1;
+    return _chosen;
   }
 
-  void updateChosenAcc(int value){
+  void updateChosenAcc(String value){
     _chosen = value;
     notifyListeners();
   }
@@ -31,12 +29,7 @@ class MainModel extends Model {
 
   getNumberOfAccounts(){
     notifyListeners();
-    return _numberOfAcc;
-  }
-
-  void updateNumberOfAcc(int value){
-    _numberOfAcc = value;
-    notifyListeners();
+    return _daftar.length;
   }
 
   getDaftarAkun(){
@@ -136,10 +129,9 @@ class MainModel extends Model {
     _data.remove(kunci);
   }
 
-  void addAccount(String kunci, String name, String race, String classs) {
+  void addAccount(String name, String race, String classs) {
     //ketika membuat account baru, semua status dalam akun itu 0 atau kosong(untuk string)
-    _data[kunci] = {
-      "name": name,
+    _data[name] = {
       "race": race,
       "class": classs,
       "abilityScores": {

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String kunci = ScopedModel.of<MainModel>(context).getChosenAcc().toString();
+    String kunci = ScopedModel.of<MainModel>(context).getChosenAcc();
 
     return Scaffold(
         appBar: AppBar(
@@ -44,8 +44,7 @@ class Dashboard extends StatelessWidget {
                 width: 300,
                 height: 50,
                 child: Center(
-                  child: Text(
-                    ScopedModel.of<MainModel>(context).data[kunci]['name'],
+                  child: Text(kunci,
                     style: TextStyle(fontSize: 30),
                   ),
                 ),

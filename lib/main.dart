@@ -36,7 +36,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    int kunci = ScopedModel.of<MainModel>(context).getNumberOfAccounts();
     List<String> daftar = ScopedModel.of<MainModel>(context).getDaftarAkun();
 
     return Scaffold(
@@ -64,8 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.all(4),
               elevation: 8,
               child: ListTile(
-                title: Text(ScopedModel.of<MainModel>(context)
-                    .data[daftar[index]]['name']),
+                title: Text(daftar[index]),
                 subtitle: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -77,17 +75,19 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ]
                 ),
-                onTap: () {
-                  ScopedModel.of<MainModel>(context).updateChosenAcc(index);
+                onTap: (){
+                  ScopedModel.of<MainModel>(context).updateChosenAcc(daftar[index]);
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Dashboard()),
+                    MaterialPageRoute(
+                      builder: (context) => Dashboard(),
+                    ),
                   );
                 },
               ),
             );
           },
-          itemCount: kunci,
+          itemCount: daftar.length,
         ),
       ),
     );
