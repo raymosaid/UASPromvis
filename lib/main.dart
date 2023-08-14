@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return ScopedModel(
         model: MainModel(),
         child: MaterialApp(
-          title: "Tubes PromVis",
+          title: "Character Sheet",
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: Colors.blueGrey,
